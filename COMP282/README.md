@@ -1,6 +1,6 @@
 # COMP 282 - Advanced Data Structures (Fall 2018)
 
-**Book:** Data Abstraction and Problem Solving with Java (J. Prichard & F. Carrano)
+**Book:** *Data Abstraction and Problem Solving with Java* by J. Prichard and F. Carrano
 
 **Topics**
 1. Trees

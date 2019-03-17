@@ -1,6 +1,6 @@
 # MATH340 - Introduction to Probability (Spring 2019)
 
-**Text:** Introduction to Probability by Blitzstein and Hwang
+**Text:** *Introduction to Probability* by Blitzstein and Hwang
 
 **Topics**
 1. Sample Spaces
