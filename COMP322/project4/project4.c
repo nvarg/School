@@ -7,6 +7,19 @@
 #include <stdio.h>
 #include <string.h>
 
+int main(int argc, char** argv)
+{
+	user_t me = get_user();
+	file_t file;
+	int i;
+	for(i = 1; i < argc; i++)
+	{
+		file = get_file(argv[i], &me);
+		fileaccess(&me, &file);
+	}
+	return 0;
+}
+
 struct User
 {
 	uid_t uid;
@@ -86,15 +99,3 @@ void fileaccess(const user_t* user, const file_t* file)
 		file->path);
 }
 
-int main(int argc, char** argv)
-{
-	user_t me = get_user();
-	file_t file;
-	int i;
-	for(i = 1; i < argc; i++)
-	{
-		file = get_file(argv[i], &me);
-		fileaccess(&me, &file);
-	}
-	return 0;
-}
