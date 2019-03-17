@@ -1,0 +1,351 @@
+.AUTHOR "Natan Deusdedit Vargas"
+.TITLE "Homework #4 Due 02/21/19"
+.PRINTSTYLE TYPESET
+.PARA_INDENT 0i
+.EQ
+delim $$
+set body_height 45
+define sim `~\s+(08∼\s0~`
+define elof `\[mo]`
+.EN
+.START
+.LIST DIGIT .
+.ITEM
+Let X denote a random variable that has a geometric distribution with a probability p = 0.2 of success
+on each trial.
+.LIST alpha ) (
+.ITEM
+Find P(X ≥ 3).
+.EQ
+P(X >= 3) mark = 1 - P(X < 3)
+.EN CONT
+.EQ
+lineup = 1 - [ (0.2) + (0.2 times 0.8) + (0.2 times 0.8 sup 2 )  ]
+.EN CONT
+.EQ
+lineup = 0.512
+.EN
+.ITEM
+Find P(X ≥ 5|X ≥ 3).
+.EQ
+P(X >= 5 | X >= 3) mark = {P(X >= 5) inter P(X >=3)} over {0.512}
+.EN CONT
+.EQ
+lineup = { 1 - P(X < 5) } over {0.512}
+.EN CONT
+.EQ
+lineup = {1 - sum from {i~=~0} to 4 left [ 0.2 times 0.8 sup i right ] } over {0.512}
+.EN CONT
+.EQ
+lineup = {0.327} over {0.512}
+.EN CONT
+.EQ
+lineup = 0.64
+.EN
+.ITEM
+Find E(X).
+.EQ
+E(X) mark = 0.8 over 0.2
+.EN CONT
+.EQ
+lineup = 4
+.EN
+.LIST OFF
+.ITEM
+Let Y denote a random variable that has a first success distribution with a probability p = 0.2 of
+success on each trial. Find E(Y).
+.EQ
+Y sim Geom
+.EN CONT
+.EQ
+E(X) mark = 0.8 over 0.2
+.EN CONT
+.EQ
+lineup = 4
+.EN
+.ITEM
+Let X denote a negative binomial random variable with parameters p = 0.4 and r = 4. Find P(X ≥ 5).
+.EQ
+P(X >= 5) mark = 1 - P(X < 5)
+.EN CONT
+.EQ
+lineup = 1 - sum from {i~=~0} to 4 left [ left ( pile { {i + 3}  above 3 } right ) times 0.4 sup 4 times 0.6 sup i right ]
+.EN CONT
+.EQ
+lineup = 1 - 0.406
+.EN CONT
+.EQ
+lineup = 0.594
+.EN CONT
+.CODE
+> i <- 0:4; sum (choose(i+3, 3) * 0.4^4 * 0.6^i)
+.BR
+[1] 0.4059136
+.BR
+.CODE OFF
+.ITEM
+Suppose that 10% of the engines manufactured on a certain assembly line are defective. If engines are
+randomly selected one at a time and tested, find the probability that exactly two defective engines will
+be tested before a good engine is found. Be sure to start by defining an appropriate random variable on
+this and all subsequent problems.
+.PP
+.PP
+Let $X = $ # of number of defective engines until a good engine is manufactured
+.EQ
+X sim Geom(0.1)
+.EN CONT
+.EQ
+P(X = 2) mark = 0.9 times 0.1 sup 2
+.EN CONT
+.EQ
+lineup = 0.009
+.EN
+.ITEM
+People with O− blood are called universal donors because they may give blood to anyone without
+risking incompatibility due blood type factors (A and B) or to the Rh factor. Of the persons donating
+blood at a clinic, 9% have O− blood. Find the probabilities of the following events.
+.LIST alpha ) (
+.ITEM
+The first O− donor is found after blood typing five people who were not O−.
+.PP
+Let $X =$ # of donors who were not O− before the first O− donor is found
+.EQ
+X sim Geom
+.EN CONT
+.EQ
+P(X = 5) mark = 0.09 times 0.91 sup 5
+.EN CONT
+.EQ
+lineup = 0.056
+.EN
+.ITEM
+The second O− donor is the sixth donor of the day.
+.EQ
+X sim NB
+.EN CONT
+.EQ
+P(X = 6) mark = left ( ~ pile {7 above 1} ~ right ) ~ 0.09 sup 2 ~ 0.91 sup 6
+.EN CONT
+.EQ
+lineup = 0.032
+.EN
+.LIST OFF
+.ITEM
+A fisherman is restricted to catching at most two red grouper per day when fishing in the Gulf of
+Mexico. A field agent for the wildlife commission inspects the day’s catch for boats as they come to
+shore. He has found that the number of red grouper caught has the following distribution.
+.TS CENTER
+tab(:) delim($$) center;
+l | c c c
+l | n n n.
+Number of Grouper:0:1:2
+_
+Probability:0.2:0.7:0.1
+.TE
+.PP
+Assuming that these records are representative of red grouper daily catches in the Gulf, find the
+expected value of the daily catch of red grouper.
+.PP
+Let $X =$ # of red goupers caught per day
+.EQ
+E(X) mark = sum from {i~=~0} to 2 left [ x sub j times p(x sub j ) right ]
+.EN CONT
+.EQ
+lineup = 0 times 0.2 + 1 times 0.7 + 2 times 0.1
+.EN CONT
+.EQ
+lineup = 0.9
+.EN
+.ITEM
+Approximately 10% of the glass bottles coming off a production line have serious defects in the glass.
+Two bottles are randomly selected for inspection. Find the expected value of the number of inspected
+bottles having serious defects.
+.PP
+Let $X =$ # of bottles with defects from 2 randomly selected bottles
+.EQ
+X sim Bin(2, 0.1)
+.EN CONT
+.EQ
+E(X) mark = 2 times 0.1
+.EN CONT
+.EQ
+lineup = 0.2
+.EN
+.EN
+.ITEM
+Two construction contracts are to be randomly assigned to one or more of three firms--I, II, and III.
+A firm may recieve more than one contract. Each contract has a potential profit of $delim off$ $90,000.
+.EQ
+delim $$
+.EN
+.LIST alpha ) (
+.ITEM
+Find the expected potential profit for firm I.
+.PP
+Let $X =$ number of contracts recieved by firm I.
+.EQ
+X sim Bin(2, 1 smallover 3 )
+.EN CONT
+.EQ
+E(X) = 2 times 1 over 3
+.EN CONT
+.PP
+Let $Y sub I. =$ Profit from contracts for firm I.
+.EQ
+E(Y sub I. ) mark = E(X) times $90,000
+.EN CONT
+.EQ
+lineup = $60,000
+.EN
+.NEWPAGE
+.ITEM
+Find the expected potential profit for firms I and II together.
+.EQ
+E(Y sub {I, II.}) mark = E(Y sub I ) + E(Y sub II)
+.EN CONT
+.EQ
+lineup = $120,000
+.EN
+.LIST OFF
+.LIST OFF
+.LIST DIGIT .
+.PAD_LIST_DIGITS LEFT
+.RESET_LIST 24
+.ITEM
+Let X be the number of Heads in 10 fair coin tosses.
+.LIST alpha ) (
+.ITEM
+Find the conditional PMF of X, given that the first two tosses both land Heads.
+.PP
+Let HH be the event that the first two tosses land heads
+.EQ
+P(X = x | HH) mark = { P(X = x) inter P(HH) } over P(HH)
+.EN
+.LIST OFF
+.RESET_LIST 3
+.ITEM
+.LIST alpha ) (
+.ITEM
+A fair die is rolled. Find the expected value of the roll.
+.PP
+Let $X =$ the value of the die toss
+.EQ
+E(X) mark = 1 smallover 6 times sum from {i~=~1} to 6 i
+.EN CONT
+.EQ
+lineup = 3.5
+.EN
+.ITEM
+Four fair dice are rolled. Find the expected total of the rolls.
+.PP
+Let $X sub j =$ the $j$th die toss. $j elof left { 1, 2, 3, 4 right }$
+.EQ
+E( sum from j X sub j ) mark = sum from j E( X sub j )
+.EN CONT
+.EQ
+lineup = 4 times 3.5
+.EN CONT
+.EQ
+lineup = 14
+.EN
+.LIST OFF
+.RESET_LIST 17
+.ITEM
+A couple decides to keep having children until they have at least one boy and at least
+one girl, and then stop. Assume they never have twins, that the “trials” are independent
+with probability $1 smallover 2$ of a boy, and that they are fertile enough to keep producing children
+indefinitely. What is the expected number of children?
+.PP
+Let $X =$ the number of children born until a boy is born
+.EQ
+X sim FS( 1 smallover 2 )
+.EN CONT
+.EQ
+E(X) mark = 1 + 0.5 over 0.5
+.EN CONT
+.EQ
+lineup = 2
+.EN
+.NEWPAGE
+.RESET_LIST 31
+.ITEM
+A group of 50 people are comparing their birthdays (as usual, assume their birthdays
+are independent, are not February 29, etc.). Find the expected number of pairs of people
+with the same birthday, and the expected number of days in the year on which at least
+two of these people were born.
+.PP
+Let $I sub i = left { lpile { {1 roman {, ~if~the~} i roman th roman {~pair~share~birthday}} above {0 roman {~otherwise}}  }$
+.EQ
+E(I) mark = sum from {n~=~1} to left ( pile { 50 above 2 } right ) E( I sub n )
+.EN CONT
+.EQ
+lineup = left ( pile { 50 above 2 } right ) times 1 over 365
+.EN CONT
+.EQ
+lineup = 3.36 roman " shared birthdays"
+.EN
+.PP
+Let $J sub i = left { lpile {{ 1 roman {,~if~the~}i roman th roman {~day~has~2~or~more~birthdays}} above {0 roman ~otherwise}}}$
+.EQ
+E(J) mark = sum from {n~=~1} to 365 E(J sub n )
+.EN CONT
+.EQ
+lineup = sum from {n~=~1} to 365 left [ 1 - P( roman "day has 0 birthdays" )
+.EN CONT
+.EQ
+lineup ~~~~~ left \C& -~~ P( roman "day has 1 birthday" ) right ]
+.EN CONT
+.EQ
+lineup = 365 times left [ 1 - left ( pile {50 above 0} right ) times left ( {364 over 365} right ) sup 50 times left (  {1 over 365} right ) sup 0
+.EN CONT
+.EQ
+lineup ~~~~~  left \C& -~~ left ( pile {50 above 1} right ) times left ( {364 over 365} right ) sup 49 times left ( {1 over 365} right ) sup 1 right ]
+.EN CONT
+.EQ
+lineup = 3.076 roman " days"
+.EN
+.NEWPAGE
+.RESET_LIST 33
+.ITEM
+A total of 20 bags of Haribo gummi bears are randomly distributed to 20 students.
+Each bag is obtained by a random student, and the outcomes of who gets which bag
+are independent. Find the average number of bags of gummi bears that the first three
+students get in total, and find the average number of students who get at least one bag.
+.PP
+Let $X sub j =$ # of gummi bears obtained by the $j$th student, $j elof left { 1, 2, 3, ..., 20 right }$
+.EQ
+X sub j sim Bin(20, 1 smallover 20 )
+.EN CONT
+.EQ
+E( sum from {j >= 3} X sub j ) mark = sum from {j >= 3} E(X sub j )
+.EN CONT
+.EQ
+lineup = sum from {j >= 3} left [ 20 times 1 smallover 20 right ]
+.EN CONT
+.EQ
+lineup = sum from {j >= 3} 1
+.EN CONT
+.EQ
+lineup = 3 roman " gummy bears"
+.EN
+.PP
+Let $Y sub j = left { lpile { {1 roman ", if the " j roman "th student recieved at least 1 gummy bear"} above {0 roman ", otherwise"} }$
+.TS CENTER
+tab(	) delim($$) center;
+c c c.
+_
+$y sub j$	$P(Y sub j = y sub j )$	$y sub j times P(Y sub j = y sub j )$
+_
+1	$1 - left ( 19 over 20 right ) sup 20$	$0.642$
+0	$left ( 19 over 20 right ) sup 20$	$0$
+.TE
+.EQ
+E( sum from j Y ) mark = sum from j Y sub j
+.EN CONT
+.EQ
+lineup = 20 times (0 + 0.642)
+.EN CONT
+.EQ
+lineup = 12.83 roman " students"
+.EN
+.LIST OFF

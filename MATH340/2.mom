@@ -1,0 +1,493 @@
+.TITLE "Homework #2" "Due 02/05/19"
+.AUTHOR "Natan Deusdedit Vargas"
+.PRINTSTYLE TYPESET
+.EQ
+delim $$
+define comp `sup c`
+define / ` over `
+define element `\[mo]`
+.EN
+.PARA_INDENT 0i
+.PARA_SPACE 12p
+.START
+.LIST DIGIT .
+.ITEM
+.PP
+A card is drawn from a standard deck of 52 cards. Is the event of drawing a jack independent of the
+event of drawing a heart? Justify your answer.
+.PP
+According to the defintion of independence, events $A$ and $B$ are independent if $A inter B = P(A) times P(B)$.
+.EQ I
+P(A inter B) mark = P(A) times P(B)
+.EN
+.EQ I
+1 / 52 lineup = 4 / 52 times 13 / 52
+.EN
+.EQ I
+1 / 52 lineup = 1 / 52
+.EN
+The definition of independence holds true, therefore the events are independent.
+
+.ITEM
+Two dice are rolled and the dots on the upper faces observed. Is the event of observing an 8
+independent of the event of rolling doubles? Justify your answer.
+.PS 2p
+box invis;
+box invis "1";
+box invis "2";
+box invis "3";
+box invis "4";
+box invis "5";
+box invis "6";
+down;
+box invis "1" with .n at 1st box.s;
+box invis "2";
+box invis "3";
+box invis "4";
+box invis "5";
+box invis "6";
+for i = 1 to 6 do {
+	right;
+	if i == 1 then {
+		box fill 0.2 sprintf("%g", i+1) with .w at `5*i + 1'th last box.e;
+	} else {
+		box sprintf("%g", i+1) with .w at `5*i + 1'th last box.e;
+	}
+	for j =1 to 5 do {
+		if ((i == j+1) || (i+j+1 == 8)) then {
+			if ((i == j+1) && (i+j+1 == 8)) then {
+				box fill 0.6 sprintf("%g", i+j+1);
+			} else {
+				box fill 0.2 sprintf("%g", i+j+1);
+			}
+		} else {
+			box sprintf("%g", i+j+1);
+		}
+	}
+}
+.PE
+.EQ I
+P(A inter B) mark = P(A) times P(B)
+.EN
+.EQ I
+1 / 36 lineup != 6 / 36 times 5 / 36
+.EN
+The definition of independence does not hold for the event of rolling an 8 and the event of rolling doubles, therefore, the events are dependent.
+
+.ITEM
+If A and B are independent events each with positive probability, prove that they cannot be mutually
+exclusive.
+
+Suppose A and B are mutually exclusive. By the definition of independent events, the following must be true:
+.EQ
+P(A inter B) = P(A) times P(B)
+.EN
+Since they are mutually exlusive $P(A inter B) = 0$. Then:
+.EQ
+0 = P(A) times P(B)
+.EN
+$P(A)$ and $P(B)$ are non-zero, so their product cannot equal zero. Therefore the $P(A inter B) != P(A) times P(B)$.
+This contradicts the statement that they are mutually exclusive, therefore they must not be exclusive.
+
+.ITEM
+If A and B are independent events, show that $A sup c$ and $B sup c$ are independent.
+
+Given: $P(A inter B) = P(A) times P(B)$
+.EQ I
+P(A comp inter B comp ) mark = P((A union B) comp )
+.EN
+.EQ I
+roman {"(using DeMorgan's + compliment definition)"} lineup = 1 - P(A union B)
+.EN
+.EQ I
+roman {"(using union definition)"} lineup = 1 - [P(A) + P(B) - P(A inter B)]
+.EN
+.EQ I
+roman { "(using given)" }lineup = 1 - P(A) - P(B) + [P(A) times P(B)]
+.EN
+.EQ I
+roman{"(compliment definition)"} lineup = 1 - [1 - P(A comp )] - [1 - P(B comp )]
+.EN
+.EQ I
+lineup "      "+ [1 - P(A comp )] times [1 - P(B comp )]
+.EN
+.EQ I
+roman{"(distribute)"} lineup = 1 - 1 + P(A comp ) - 1 + P(B comp )
+.EN
+.EQ I
+lineup "      "+ 1 - P(B comp ) - P(A comp ) + P(A comp ) times P(B comp )
+.EN
+.EQ I
+roman {"(reduce)"} lineup = P(A comp ) times P(B comp )
+.EN
+
+.ITEM
+The numbers (in thousands), by gender and marital status, of the 2004 U.S. population aged 15 and
+over are shown in the table that follows.
+.TS CAPTION "Source Statistical Abstract of the United States (2006)."
+tab(:);
+| c | c | c | c | c | c |
+| l | n | n | n | n | n |
+| l | n | n | n | n | n |
+| l | n | n | n | n | n |.
+_
+:Never Married:Married:Widowed:Divorced:\*[BD]Totals\*[PREV]
+=
+Females:23,655:63,282:11,141:12,804:\*[BD]110,882\*[PREV]
+_
+Males:29,561:62,483:2,641:8,956:\*[BD]103,641\*[PREV]
+_
+\*[BD]Totals:53,216:125,765:13,782:21,760:214,523\*[PREV]
+_
+.TE
+.LIST alpha ) (
+.ITEM
+What is the probability that a randomly selected person in 2004 had never been married?
+.EQ I
+P( roman "Never Married" ) mark = { roman "Never Married" } / { roman "Total" }
+.EN
+.EQ I
+lineup = 53,216 / 214,523
+.EN
+.EQ I
+lineup approx 25%
+.EN
+.ITEM
+What is the probability that a randomly selected female in 2004 was a widow?
+.EQ I
+P( roman "Widow" | roman "Female" ) mark = {P( roman "Widow" inter roman "Female" )} / {P( roman "Female" )}
+.EN
+.EQ I
+lineup = left ( 11,141 / 214,523 right ) / left ( 110,882 / 214,523 right )
+.EN
+.EQ I
+lineup approx 10%
+.EN
+.ITEM
+What is the probability that a randomly selected divorced person in 2004 was a male?
+.EQ I
+P( roman "Divorced" inter roman "Male" ) mark = { roman "Divorced" inter roman "Male" } / { roman Total }
+.EN
+.EQ I
+lineup = 8,956 / 214,532
+.EN
+.EQ I
+lineup approx 4%
+.EN
+.ITEM
+Was it more likely in 2004 for males or females to be widowed? Justify your answer.
+.EQ I
+P( roman Widowed | roman Male ) mark = {P( roman Widowed inter roman Male )} / {P( roman Male )}
+.EN
+
+.EQ I
+lineup = left ( 2,641 / 214,523 right ) / left ( 103,641 / 214,523 right )
+.EN
+.EQ I
+lineup approx 2.5%
+.EN
+.EQ
+P( roman "Widowed" inter roman "Female" ) mark = { roman "Widowed" inter roman "Female" } / { roman Total }
+.EN
+.EQ I
+lineup = left ( 11,141 / 214,523 right ) / left ( 110,882 / 214,523 right )
+.EN
+.EQ I
+lineup approx 10%
+.EN
+Yes, females were much more likely to be widowed, because if you randomly select from only females, you are more likely to select a widow than when you select from males.
+
+.LIST OFF
+.ITEM
+In a particular community, 70% of the voters are Democrats, and 30% are Republicans. Thirty percent
+of the Republican voters and 60% of the Democratic voters favor the incumbent. What is the probability
+that a randomly selected voter from this community is a Republican who favors the incumbent?
+.PS 1.3p
+box invis width 1 height 1;
+box invis filled 0.3 width 1/2 height 1/2 with .ne at 1st box .n "0.7";
+box invis filled 0.5 width 1/2 height 1/2 with .nw at 1st box .n "0.3";
+box invis filled 0.0 width 1/2 height 1/2 with .nw at 1st box .w "0.4";
+box invis filled 0.1 width 1/2 height 1/2 with .ne at 1st box .e "0.6";
+box invis width 1 height 1/2 with .n at 1st box.n "R";
+box invis width 1/2 height 1 with .e at 1st box.e "I";
+down;
+box invis with .e at 2nd box.w width 1/2 "0.7";
+box invis same "0.3";
+right;
+box width 1 height 1 at 1st box;
+.PE
+By Bayes' Rule:
+.EQ
+P(R inter I) mark = P(R) times P(I | R)
+.EN
+.EQ
+lineup = 0.7 times 0.3
+.EN
+.EQ
+lineup = 0.21
+.EN
+.ITEM
+According to the National Center for Statistics and Analysis, in 2004, 28% of the drivers involved in
+fatal crashes were between 20 and 29 years of age. Further, 39% of the 20 to 29 year old drivers
+involved in fatal crashes had a blood alcohol level of at least 0.01. In what percentage of fatal crashes
+were the drivers between 20 and 29 years of age and found to have a blood alcohol level above 0.01?
+
+Let:
+.RLD 21p
+.EQ
+Y mark = roman "20 to 29 years old"
+.EN
+.RLD 12p
+.EQ
+A lineup = roman "at least 0.01 blood alcohol level"
+.EN
+.RLD 32p
+.SHIM
+.PS 2p
+box invis width 1 height 1;
+box invis filled 0.3 width 1/2 height 1/2 with .ne at 1st box .n "0.61";
+box invis filled 0.5 width 1/2 height 1/2 with .nw at 1st box .n "0.39";
+box invis filled 0.0 width 1/2 height 1/2 with .nw at 1st box .w;
+box invis filled 0.1 width 1/2 height 1/2 with .ne at 1st box .e;
+box invis width 1 height 1/2 with .n at 1st box.n "Y";
+box invis width 1/2 height 1 with .e at 1st box.e "A";
+down;
+box invis with .e at 2nd box.w width 1/2 "0.28";
+box invis same "0.72";
+right;
+box width 1 height 1 at 1st box;
+.PE
+.RLD 32p
+.SHIM
+.EQ
+P(Y inter A) mark = P(Y) times P(A | Y)
+.EN
+.EQ
+lineup = 0.28 times 0.39
+.EN
+.EQ
+lineup approx 0.11
+.EN
+.ITEM
+The probability that Elise studies for a science test and passes it is 0.8. The probability that she studies
+is 0.9. If Elise studies, what is the probability that she will pass the science test?
+
+Let:
+.RLD 21p
+.EQ
+S = roman "Elise studies."
+.EN
+.RLD 12p
+.EQ
+P = roman "Elise passes."
+.EN
+.SHIM
+.RLD 24p
+.SHIM
+.EQ
+P(S inter P) mark = P(P | S) times P(P)
+.EN
+.EQ
+P(P | S) lineup = {P(S inter P)} / P(P)
+.EN
+.EQ
+lineup = 0.8 over 0.9
+.EN
+.EQ
+lineup approx 0.89
+.EN
+.ITEM
+A single multiple-choice question has n choices, only one of which is correct. A student knows the
+answer with probability p. If the student does not know the answer, he or she guesses randomly. Find the conditional probability that they knew the answer, given that the question was answered correctly.
+
+Let $c = roman "the question was answered correctly"$
+.EQ
+P(p | c) = {P(p inter c)} over P(c)
+.EN
+.ITEM
+Students in a college program have two opportunities to pass an exam required for graduation. The
+probability that a student passes the test the first time is 0.8. For those who fail the first time, the
+probability of passing the test the second time is 0.6.
+.PS
+box "0.8" width 1/2 height 1/2 invis; box "0.2" same invis;
+box filled 0 height 1 width 1/2 with .n at 1st box .s "P" "1.0"; box width 1/2 height 1/2 with .nw at last box.ne "FP" "0.6";
+box same "FF" "0.4" with .n at last box.s;
+.PE
+.LIST alpha ) (
+.ITEM
+Find the probability that a randomly selected student passes the test.
+.EQ
+P(P union FP) mark = 0.8 + 0.2 times 0.6
+.EN
+.EQ
+lineup = 0.92
+.EN
+.ITEM
+If the student passes the test, what is the probability that she or he did so on the first try?
+.EQ
+P(P|P union FP) mark = {P(P inter [P union FP])} / {P(P union FP)}
+.EN
+.EQ
+lineup = 0.8 / 0.92
+.EN
+.EQ
+lineup approx 0.87
+.EN
+.LIST OFF
+.LIST OFF
+
+Chapter 2, #1, 30, 32, 44a, 26ab
+
+.LIST DIGIT .
+.ITEM
+A spam filter is designed by looking at commonly occurring phrases in spam. Suppose
+that 80% of email is spam. In 10% of the spam emails, the phrase "free money" is used,
+whereas this phrase is only used in 1% of non-spam emails. A new email has just arrived,
+which does mention "free money". What is the probability that it is spam?
+
+.RESET_LIST 30
+.ITEM
+A family has 3 children, creatively named A, B, and C.
+
+.LIST alpha ) (
+.ITEM
+Discuss intuitively (but clearly) whether the event "A is older than B" is independent
+of the event "A is older than C".
+
+
+
+
+
+
+
+
+
+.ITEM
+Find the probability that A is older than B, given that A is older than C.
+
+
+
+
+
+
+
+
+
+.LIST OFF
+
+.RESET_LIST 32
+.ITEM
+Consider four nonstandard dice (the Efron dice), whose sides are labeled as follows
+(the 6 sides on each die are equally likely).
+.PP
+A: 4, 4, 4, 4, 0, 0
+.RLD 6p
+.PP
+B: 3, 3, 3, 3, 3, 3
+.RLD 6p
+.PP
+C: 6, 6, 2, 2, 2, 2
+.RLD 6p
+.PP
+D: 5, 5, 5, 1, 1, 1
+.RLD 6p
+.PP
+These four dice are each rolled once. Let A be the result for die A, B be the result for die B, etc.
+.RLD 6p
+.SHIM
+.LIST alpha ) (
+.ITEM
+Find P(A > B), P(B > C), P(C > D), and P(D > A).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ITEM
+Is the event A > B independent of the event B > C? Is the event B > C independent
+of the event C > D? Explain
+
+
+
+
+
+
+
+
+
+.LIST OFF
+
+.RESET_LIST 44
+.ITEM
+Calvin and Hobbes play a match consisting of a series of games, where Calvin has
+probability p of winning each game (independently). They play with a "win by two"
+rule: the first player to win two games more than his opponent wins the match. Find
+the probability that Calvin wins the match (in terms of p), in two different ways:
+.LIST alpha ) (
+.ITEM
+by conditioning, using the law of total probability.
+
+
+
+
+
+
+
+
+
+.ITEM
+by interpreting the problem as a gambler's ruin problem.
+
+
+
+
+
+
+
+
+
+.LIST OFF
+.RESET_LIST 26
+.ITEM
+To battle against spam, Bob installs two anti-spam programs. An email arrives,
+which is either legitimate (event $L$) or spam (event $L comp$), and which program $j$ marks as
+legitimate (event $M sub j$) or marks as spam (event $M sub j comp$
+) for $j \[mo] left {1, 2 right }$. Assume that 10%
+of Bob's email is legitimate and that the two programs are each "90% accurate" in the
+sense that $P(M sub j | L) = P(M sub j comp | L comp ) = 9 / 10$. Also assume that given whether an email is
+spam, the two programs' outputs are conditionally independent.
+.LIST alpha ) (
+.ITEM
+Find the probability that the email is legitimate, given that the 1st program marks it as legitimate (simplify).
+
+
+
+
+
+
+
+
+
+.ITEM
+Find the probability that the email is legitimate, given that both programs mark it as legitimate (simplify)
+
+
+
+
+
+
+
+
+
+.LIST OFF
+.LIST OFF

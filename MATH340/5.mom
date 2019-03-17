@@ -1,0 +1,312 @@
+.AUTHOR "Natan Deusdedit Vargas"
+.TITLE "Homework #5 Due 03/07/19"
+.PRINTSTYLE TYPESET
+.PARA_INDENT 0i
+.EQ
+delim $$
+define sim `~\s+(08∼\s0~`
+define elof `\[mo]`
+.EN
+.START
+.LIST DIGIT .
+.PAD_LIST_DIGITS LEFT
+.ITEM
+A fisherman is restricted to catching at most two red grouper per day when fishing in the Gulf of
+Mexico. A field agent for the wildlife commission inspects the day’s catch for boats as they come to
+shore. He has found that the number of red grouper caught has the following distribution.
+.TS CENTER
+delim($$) tab(:) center;
+l | c c c.
+Number of Grouper:0:1:2
+_
+Probability:0.2:0.7:0.1
+.TE
+.PP
+Assuming that these records are representative of red grouper daily catches in the Gulf, find the
+the variance and the standard deviation for the individual daily catch of red grouper.
+.PP
+Let $X =$ the number of gouper caught per day.
+.EQ
+Var(X) mark = E X sup 2 + (E X) sup 2
+.EN CONT
+.EQ
+lineup = sum from x {x sup 2 times p(x)} - ( sum from x {x times p(x)}) sup 2
+.EN CONT
+.EQ
+lineup = [0 sup 2 times 0.2 + 1 sup 2 times 0.7 + 2 sup 2 times 0.1]
+.EN CONT
+.EQ
+lineup ~~ - [0 times 0.2 + 1 times 0.7 + 2 times 0.1] sup 2
+.EN CONT
+.EQ
+lineup = 0.29
+.EN CONT
+.EQ
+SD(X) mark = sqrt {Var(X)}
+.EN CONT
+.EQ
+lineup = sqrt 0.29
+.EN CONT
+.EQ
+lineup = 0.539
+.EN
+.ITEM
+Two balanced coins are flipped. Find the expected value and variance of the total number of heads.
+.TS CENTER
+delim($$) tab(:) center;
+l | c c c.
+Number of Heads:0:1:2
+_
+Probability:0.25:0.5:0.25
+.TE
+.PP
+Let $X =$ Number of Heads.
+.EQ
+E(X) = mu mark = sum from x left [ x times p(x) right ]
+.EN CONT
+.EQ
+lineup = 0 times 0.25 + 1 times 0.5 + 2 times 0.25
+.EN CONT
+.EQ
+lineup = 1
+.EN CONT
+.EQ
+Var(X) mark = sum from x left [ x sup 2 times p(x) right ] - mu sup 2
+.EN CONT
+.NEWPAGE
+.EQ
+lineup = [ 0 sup 2 times 0.25 + 1 sup 2 times 0.5 + 2 sup 2 times 0.25 ] - 1 sup 2
+.EN CONT
+.EQ
+lineup = 0.5
+.EN CONT
+.ITEM
+Assume that the number of calls coming into a hotel’s reservation center follow a Poisson process with a mean of three calls per minute.
+.PP
+Let $X =$ number of calls per minute
+.EQ
+E(X) = lambda = 3
+.EN CONT
+.EQ
+p(x) = {e sup { - lambda } lambda sup x } over {x!}
+.EN CONT
+.LIST alpha ) (
+.ITEM
+Find the probability that no calls will arrive in a given 1 minute period.
+.EQ
+p(0) mark = { e sup -3 (-3) sup 0 } over 0!
+.EN CONT
+.EQ
+lineup = e sup -3
+.EN CONT
+.EQ
+lineup = 0.0497
+.EN
+.ITEM
+Find the probability that at least two calls will arrive in a given 1-minute period.
+.EQ
+P(X >= 2) mark = 1 - [p(1) + p(0)]
+.EN CONT
+.EQ
+lineup = 1 - left [ { e sup -3 (3) sup 1 } over 1! + e sup -3 right ]
+.EN CONT
+.EQ
+lineup = 1 - [ 4 e sup -3 ]
+.EN CONT
+.EQ
+lineup = 0.80
+.EN
+.ITEM
+Find the probability that at least two calls will arrive in a given 2-minute period.
+.PP
+Let $Y =$ the number of calls in a given 2-minute period
+.EQ
+Y sim Pois(2 times 3)
+.EN CONT
+.EQ
+E(Y) = lambda =  2 times 3 = 6
+.EN CONT
+.EQ
+P(Y >= 2) mark = 1 - left [ { e sup -6 (6) sup 1 } over 1! + e sup -6 right ]
+.EN CONT
+.EQ
+lineup = 1 - 7 e sup -6
+.EN CONT
+.EQ
+lineup = 0.983
+.EN
+.LIST OFF
+.ITEM
+Assume that the flaws in a certain type of copper wire follow a Poisson process with a mean number of 0.5 flaws per meter.
+The cost of repairing the flaw in the copper wire is 8 dollars per flaw.
+Find the mean and the standard deviation of the distribution of repair costs for a 10-meter length of wire.
+.EQ
+E( roman "number of flaws per meter" ) = 0.5
+.EN CONT
+.PP
+Let $X =$ number of flaws per 10 meters.
+.EQ
+X sim Pois( lambda = 10 times 0.5)
+.EN CONT
+.EQ
+EX mark = lambda
+.EN CONT
+.EQ
+lineup = 10 times 0.5
+.EN CONT
+.EQ
+lineup = 5
+.EN CONT
+.EQ
+SD(X) mark = sqrt {Var(X)}
+.EN CONT
+.EQ
+lineup = sqrt lambda
+.EN CONT
+.EQ
+lineup = sqrt 5
+.EN CONT
+.EQ
+lineup = 2.24
+.EN CONT
+.ITEM
+Chu (2003) studied the number of goals scored during the 232 World Cup soccer games played from
+1990 to 2002 and found them to be well modeled by the Poisson distribution. Only goals scored
+during the 90 min
+utes of regulation play were considered. The average number of goals scored each
+game was 2.5. Assuming that this mean continues to hold for other World Cup games, find the
+probabilities associated with the following events.
+.PP
+Let $X =$ number of goals scored in a world cup soccer game
+.EQ
+X sim Pois( lambda = 2.5 )
+.EN
+.LIST alpha ) (
+.ITEM
+At least six goals are scored during the 90 minutes of regulation play in a randomly selected game during the next World Cup. Use technology (e.g., R or Excel).
+.PP
+.CODE
+> 1 - sum(dpois(0:5, 2.5))
+.BR
+[1] 0.04202104
+.CODE OFF
+.ITEM
+No goals are scored during the 90 minutes of regulations play in a randomly selected game during the next World Cup.
+.EQ
+P(X = 0) mark = { e sup -2.5 2.5 sup 0 } over 0!
+.EN CONT
+.EQ
+lineup = e sup -2.5
+.EN CONT
+.EQ
+lineup = 0.082
+.EN
+.LIST OFF
+.ITEM
+A gambler buys 2000 randomly generated 1 dollar tickets to California’s “Daily Three” game. The chance of winning is 1 out of 1000 for each ticket.
+.LIST alpha ) (
+.ITEM
+Find the exact chance that he will win on precisely two tickets. (In which case he will break even.) Use technology (e.g., R or Excel).
+.PP
+.CODE
+> dbinom(2, 2000, 1/1000)
+.BR
+[1] 0.270806
+.CODE OFF
+.ITEM
+Use the Poisson approximation to the binomial to compute the approximate chance that he will win
+on two tickets. Compare your answer to the one you got for part a. Are they close?
+.PP
+Let $X =$ the number of winning tickets
+.EQ
+X sim Pois( np = 2000 times 1 smallover 1000 = 2)
+.EN CONT
+.EQ
+p(2) mark = {e sup -2 times 2 sup 2} over 2!
+.EN CONT
+.EQ
+lineup = 0.2706706
+.EN CONT
+.PP
+Yes, it's the same for 3 significant figures
+.ALD 8p
+.SHIM
+.LIST OFF
+.RESET_LIST 21
+.ITEM
+Raindrops are falling at an average rate of 20 drops per square inch per minute. What
+would be a reasonable distribution to use for the number of raindrops hitting a particular
+region measuring 5 inches squared in t minutes? Why? Using your chosen distribution, compute
+the probability that the region has no rain drops in a given 3-second time interval.
+.ALD 8p
+.SHIM
+.PP
+Let $X sub t =$ number of raindrops hitting a 5 inch squared area in t minutes
+.EQ
+X sub t sim Pois( lambda sub t )
+.EN CONT
+.PP
+$X sub t$ follows a Poisson distribution because the number of raindrops hitting the area should be independent, and the rate is consistent for measurements across several intervals under the assumption that they are within some reasonable constraint.
+.ALD 8p
+.SHIM
+.PP
+Let $Y =$ the number of raindrops in a 5 inch squared area in a given 3 second interval
+.EQ
+Y sim Pois ( 3 smallover 60 times lambda sub 1 )
+.EN CONT
+.EQ
+p(0) mark = {e sup { -{3 lambda sub 1} smallover 60} times left ( {3 lambda sub 1} smallover 60 right ) sup 0 } over 0!
+.EN CONT
+.EQ
+lineup = e sup { -{3 lambda sub 1} smallover 60}
+.EN
+.RESET_LIST 26
+.ITEM
+Let $X$ and $Y$ be $Pois( lambda )$ r.v.s, and $T = X + Y$. Suppose that $X$ and $Y$ are \f(BInot\fP
+independent, and in fact $X = Y$ . Prove or disprove the claim that $T <- Pois( 2 lambda )$ in this
+scenario.
+.EQ
+E(T) mark = E(X + Y)
+.EN CONT
+.EQ
+lineup = E(X) + E(Y)
+.EN CONT
+.EQ
+lineup = lambda + lambda
+.EN CONT
+.EQ
+lineup = 2 lambda
+.EN
+.EQ
+T mark sim Pois(E(T))
+.EN CONT
+.EQ
+T lineup sim Pois( 2 lambda )
+.EN
+.PP
+$T <- Pois(2 lambda )$ is true
+.ALD 8p
+.SHIM
+.RESET_LIST 57
+.ITEM
+For $X sim Pois( lambda )$ find $E( 2 sup X )$, if it is finite.
+.ALD 8p
+.SHIM
+.PP
+Let $g(x) = 2 sup x$
+.EQ
+E( 2 sup X ) mark = sum from x left [ g(x) times p(x) right ] , ~~~~~ x elof left { 0, 1, 2, ... right }
+.EN CONT
+.EQ
+lineup = sum from {x~=~0} to inf left [ 2 sup x times {e sup {- lambda} lambda sup x } over x! right ]
+.EN CONT
+.EQ
+lineup = e sup {- lambda} times sum from {x~=~0} to inf {2 sup x lambda sup x} over x!
+.EN CONT
+.EQ
+lineup = e sup {- lambda} times e sup {2 lambda}
+.EN CONT
+.EQ
+lineup = e sup lambda
+.EN
+.LIST OFF

@@ -1,0 +1,314 @@
+.AUTHOR "Natan Deusdedit Vargas"
+.TITLE "Homework #1 Due 01/29/19"
+.PRINTSTYLE TYPESET
+
+.EQ
+delim $$
+.EN
+.PARA_INDENT 0m
+
+.START
+
+.LIST DIGIT .
+.ITEM
+In an experiment, the number of insects on a randomly selected plant is recorded.
+
+.LIST alpha ) (
+.ITEM
+Specify the sample space for this experiment.
+
+.PP
+The sample space $S$ that describes all possible outcomes of the experiment is $left { 0 , 1, 2, 3, 4, ... right }$ because a plant can have $0$ or more insects on it.
+
+.ITEM
+Give the set $A$ representing the event of at most three insects being on the plant.
+
+.PP
+Let $E sub 0$, $E sub 1$, $E sub 2$, and $E sub 3$ represent the event that a plant has $0, 1, 2, 3$ insects on it respectively. Then $A = E sub 0 union E sub 1 union E sub 2 union E sub 3$
+
+.ITEM
+Explain why each of the possible outcomes in the sample space is not equally likely.
+
+The sample space has a range from 0 to $inf$, however it's not the case that the event of an outragously large amount of insects being on the plant is equally likely as a more reasonable amount of insects being on the plant.
+
+.LIST OFF
+
+.ITEM
+In an isolated housing area consisting of 50 households, the residents are allowed to have at most one dog and at most one cat per household. Currently 25 households have a dog, 7 have both a cat and a dog, and 18 have neither a cat nor a dog. An experiment consists of randomly selecting a household and observing whether that household has a cat or a dog or both. Using D to denote the event that the selected household has a dog and C to denote the event that the selected household has a cat, symbolically denote the following events and identify the number of households represented by each.
+
+.PS
+box width 3.5 height 2 at (0, 0);
+circle rad 0.7 at (-0.5,0) "25";
+circle rad 0.7 at 1st circle +(1, 0) "7";
+"50 households total" at 1st box.nw -(-0.8, 0.2);
+"18" at 1st circle -(1, 0.3);
+"7" at 1st circle +(0.5, 0)
+.PE
+
+.LIST alpha ) (
+.ITEM
+The selected household has a dog but no cat.
+
+.EQ
+D - C = D - left ( D inter C right ) = 25 - 7 = 18
+.EN
+
+.ITEM
+The selected household has a cat.
+
+.PP
+Let $S$ be the sample space of 50 households.
+.EQ
+S = S - D - left ( D union C right ) sup c = 50 - 25 - 18 = 7 " households"
+.EN
+
+.ITEM
+The selected household has a cat but no dog.
+
+.EQ
+D - C = D - left ( D inter C right ) = 25 - 7 = 18 " households"
+.EN
+
+.ITEM
+The selected household has a cat or a dog but not both.
+
+.EQ
+"cat or dog not both" = 18 " households"
+.EN
+
+.PP
+All cat owners have a dog, because $C = C union D$, so this set is equivalent to the households that have a dog and no cat, because cat and not both is an empty set.
+
+.LIST OFF
+.ITEM
+On a large college campus, 84% of the students report drinking alcohol within the past month, 33% report using some type of tobacco product within the past month, and 86% report using at least one of these two substances during the past month. In an experiment, whether or not a randomly selected student has drunk alcohol or used a tobacco product during the past month is recorded. Using set notation, symbolically denote each of the following events and then determine the proportion of the student body represented by each.
+
+.PP
+Let the event that a student reported drinking alcohol be denoted as $A$.
+.PP
+Let the event that a student reported smoking tobacco products be denoted as $T$.
+
+.LIST alpha ) (
+.ITEM
+The selected student has both drunk alcohol and used a tobacco product during the past month.
+
+.EQ
+P(A) + P(T) - P(A inter T) = 84% + 33% - 86% = 31%
+.EN
+
+.ITEM
+The selected student has abstained from both alcohol and tobacco products during the past month
+
+.EQ
+P(A union T) sup c = 100% - 86% = 14%
+.EN
+
+.ITEM
+The selected student has either consumed alcohol or used a tobacco product during the past month but not both.
+
+.EQ
+P ( A inter T sup c ) + P ( A sup c inter T ) = P (A union T ) - P ( A inter T ) = 86% - 31% = 50%
+.EN
+
+.LIST OFF
+
+.ITEM
+Five applicants (Jim, Don, Mary, Sue, and Nancy) are available for two iden tical jobs. Because all  applicants are equally qualified, a supervisor randomly selects two applicants to fill these jobs. Find the probability of each of the following events.
+
+.PP
+Let's denote the event of a male being chosen as M, and a female being chosen as F.
+.PS NO_SHIM NO_FLEX
+box "MM";
+box "MF";
+box "FM" with .ne at 1st box .se;
+box "FF";
+"M" with .s at 1st box .n +(0, 0.2);
+"F" with .s at 2st box .n +(0, 0.2);
+"M" with .e at 1st box .w -(0.2, 0);
+"F" with .e at 3st box .w -(0.2, 0);
+.PE
+
+.LIST alpha ) (
+.ITEM
+Both males are selected.
+
+.EQ
+2 over 5 times 1 over 4 = 10%
+.EN
+
+.ITEM
+At least one male is selected.
+
+.PP
+Selecting at least one male is equivalent ot not selecting two females.
+
+.EQ
+P(FF) = 3 over 5 times 2 over 4 = 30%
+.EN
+.EQ
+P(FF) sup c = 1 - 30% = 70%
+.EN
+
+.ITEM
+At least one female is selected.
+
+.PP
+Selecting at least one female is equivalent to not selecting two males.
+
+.EQ
+P(MM) sup c = 1 - 10% = 90%
+.EN
+
+.LIST OFF
+.ITEM
+ In a class of 60 students, 13 could not roll their tongue, 17 had attached earlobes, and 10 could roll their tongues and had attached earlobes. A student is randomly selected from this class. Find the probability that the selected student:
+
+.PP
+Let the event that a selected student can roll their tounge be donted by $R$.
+.PP
+Let the event that a student has attached earlobes be denoted by $A$.
+
+.LIST alpha ) (
+.ITEM
+can roll his or her tongue.
+
+.EQ
+P(A) = P( left ( A sup c right ) sup c ) = 1 - 13 over 60 = 78%
+.EN
+
+.ITEM
+could not roll his or her tongue and had attached earlobes.
+
+.EQ
+P(A - R inter A ) = { 13 - 10 } over 60 = 11%
+.EN
+
+.ITEM
+could either roll his or her tongue or had attached earlobes but not both.
+
+.EQ
+P(A inter R sup c ) + P(R) - P(A inter B) = {7 + 47 - 10} over 60 = 73%
+.EN
+
+.LIST OFF
+.ITEM
+A business traveler has five shirts, four pairs of pants, and two jackets in his closet. How many
+possible outfits, consisting of a shirt, a pair of pants, and a jacket, could he wear
+
+.PS LABEL "40 possible outfits"
+Tree: [
+
+	for i = 1 to 5 do {
+		arrow right (i-3)/5 * 5 down at (0, 0);
+	}
+
+	for i = 1 to 5 do {
+		for j = 0 to 3 do {
+			arrow right (0.3 + j*-0.2)* 1.2 down with .start at `i'th arrow.end;
+		}
+	}
+
+	for i = 1 to 5 do {
+		for j = 0 to 3 do {
+			for k = 0 to 1 do {
+				arrow right 0.05 + k*-0.1 down with .start at `(i+1)*4-2+j'th arrow.end;
+			}
+		}
+	}
+]
+
+move to Tree.nw -(0.4, 0);
+down;
+move .4;
+"shirt";
+move;
+"pants";
+move;
+"jackets";
+.PE
+
+.ITEM
+On the way to work each day, Jane drops her children off at their elementary school. She has found three ways to get from home to the elementary school and six ways to get from the elementary school to work. How many ways does she have to get from home to work, assuming that she must go by the elementary school?
+
+
+.PS LABEL "18 possible paths"
+Tree: [
+
+	for i = 1 to 3 do {
+		arrow right (0.4 + i*-0.2)*12 down at (0, 0);
+	}
+
+	for i = 1 to 3 do {
+		for j = 0 to 5 do {
+			arrow right (-0.25  + j*0.1)* 3 down with .start at `i'th arrow.end;
+		}
+	}
+]
+
+move to Tree.nw -(0.4, 0);
+down;
+move .4;
+"school";
+move;
+"work";
+.PE
+
+.ITEM
+Eight applicants have applied for two jobs. How many ways can the jobs be filled if the following additional information is known?
+
+.LIST alpha ) (
+.ITEM
+The first person chosen receives a higher salary than the second.
+.EQ
+P(8, 2) = 8! over {left ( 8 - 2 right ) !} = 56 " ways"
+.EN
+
+.ITEM
+There are no differences between the jobs
+.EQ
+C(8, 2) = 8! over {2! left ( 8 - 2 right ) !} = 28 " ways"
+.EN
+
+.LIST OFF
+.ITEM
+A personnel director for a corporation has hired 10 new engineers. If four distinctly different positions are open at a particular plant, in how many ways can the director fill the positions?
+
+.EQ
+P(10,4) = 10! over {left ( 10 - 4 right ) ! } = 5040 " ways"
+.EN
+
+.ITEM
+A lab process consists of four steps that can be performed in any sequence. The complexity of each task differs. The lab director decides to conduct a study to determine the order of performing the tasks that will result in the lowest number of errors. If he wants to consider all possible orderings of the tasks, how many sequences will be studied?
+
+.EQ
+4! = 4 times 3 times 2 times 1 = 24 " ways"
+.EN
+
+.ITEM
+Suppose a class of 8 boys and 7 girls are to attend a theatrical performance, and the teacher obtains 15 tickets (one for each student) in a row. How many ways are there to order the students under the following conditions?
+
+.LIST alpha ) (
+.ITEM
+The children are randomly assigned seats
+
+.EQ
+15! = 1.31 times 10 sup 12 " ways"
+.EN
+
+.ITEM
+Boys and girls are alternated so that boys sit by girls and girls sit by boys
+
+.PP
+Since there are more boys than girls, the only way this can be configured is as "BGBGBGBGBGBGBGB"
+.EQ
+8 times 7 times 7 times 6 times 6 times 5 times 5 times 4 times 4 times 3 times 3 times 2 times 2 times 1 times 1 = 8! times 7! = 2.03 times 10 sup 8 " ways"
+.EN
+
+.ITEM
+All boys sit together, and all girls sit together.
+
+.PP
+this can be configured as either "BBBBBBBBGGGGGGG" or "GGGGGGGBBBBBBBB"
+.EQ
+(8! times 7!) + (7! times 8!) = 4.06 times 10 sup 8 " ways"
+.EN

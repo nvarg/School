@@ -1,0 +1,542 @@
+.AUTHOR "Natan Deusdedit Vargas"
+.TITLE "Homework #3 Due 02/12/19"
+.PRINTSTYLE TYPESET
+.PARA_INDENT 0i
+.EQ
+delim $$
+define sim `~\s+(08∼\s0~`
+define elof `\[mo]`
+.EN
+.START
+.LIST DIGIT .
+.PAD_LIST_DIGITS LEFT
+.ITEM
+The efficacy of the mumps vaccine is about 80%; that is, 80% of those receiving the mumps vaccine
+will not contract the disease when exposed. Assume that each person’s response to the mumps is
+independent of another person's response.
+.LIST alpha ) (
+.ITEM
+Find the probability that at least one exposed person will get the mumps if 10 people are exposed.
+.EQ
+X sim roman Bin~ ( 10, 0.2 )
+.EN CONT
+.EQ
+P(X >= 1; 10, 0.2) mark = 1 - P(X = 0)
+.EN CONT
+.EQ
+lineup = 1 - left ( pile { 10 above 0 } right ) times 0.8 sup 10
+.EN CONT
+.EQ
+lineup approx 0.89
+.EN
+.ITEM
+How many vaccinated people must be exposed to the mumps before the probability that at least
+one person will contract the disease is at least 0.95?
+.EQ
+F sub X (x; n, 0.2) = 1 - left ( pile { n above 0 } right ) times 0.8 sup n
+.EN
+.EQ
+n = 14
+.EN
+.TS ADJUST -1e CENTER BOXED
+tab(:) delim($$) center box;
+c | c
+n | n.
+$n$:$F sub X (x; 0.2, n)$
+_
+10:0.893
+11:0.914
+12:0.931
+13:0.945
+14:0.956
+.TE
+.LIST OFF
+.ITEM
+Let X denote a random variable that has a binomial distribution with p = 0.3 and n = 5.
+.LIST alpha ) (
+.ITEM
+Find the following values using the formula for the binomial PMF:
+.LIST roman2 ) (
+.ITEM
+$P(X = 3)$
+.EQ
+P(X=3) mark = left ( pile { 5 above 3 } right ) times 0.3 sup 3 times 0.7 sup 2
+.EN CONT
+.EQ
+lineup = 0.13
+.EN
+.ITEM
+$P(X <= 3)$
+.NEWPAGE
+.EQ
+P(X<=3) mark =  size +8 sum from {i~=~0} to 3 left [ left ( pile { 5 above i } right ) times 0.3 sup i times 0.7 sup {5-i} right ]
+.EN CONT
+.EQ
+lineup approx 0.97
+.EN
+.LIST OFF
+.ITEM
+Load the program R, obtainable at \f(CWhttp://www.r-project.org/\fP\(emyou'll just need the base subdirectory.
+Then determine the same values using the R commands pbinom and dbinom. You can learn the syntax
+of R commands using \f(CW?\fP, e.g., type \f(CW?dbinom\fP. Write the commands you used in your answer.
+.CODE BR
+> dbinom(3,5,0.3)
+.BR
+[1] 0.1323
+.BR
+> pbinom(3,5,0.3)
+.BR
+[1] 0.96922
+.CODE OFF
+
+
+.ITEM
+Use R to find all of the entire PMF for the binomial distribution with p = 0.3 and n = 5. To do so,
+replace the 3 you used before with 0:5.
+.CODE BR
+> dbinom(0:5,5,0.3)
+.BR
+[1] 0.16807 0.36015 0.30870 0.13230 0.02835 0.00243
+.CODE OFF
+.LIST OFF
+
+
+.ITEM
+When testing insecticides, the amount of the chemical when given all at once will result in the death
+of 50% of the population is called the LD50, where LD stands for lethal dose. If 40 insects are placed
+in separate Petri dishes and treated with an insecticide dosage of LD50, find the probabilities of the
+following events.
+.LIST alpha ) (
+.ITEM
+Exactly 20 survive
+.EQ
+P(X = 20; 40, 0.5) mark = left ( ~ pile { 40 above 20 } ~ right ) times 0.5 sup 20 times 0.5 sup 20
+.EN CONT
+.EQ
+lineup approx 0.125
+.EN
+.ITEM
+At most 15 survive
+.EQ
+P(X >= 15) = size +8 sum from {i ~ = ~ 0} to 15 left [ left ( ~ pile {40 above i} ~ right ) times 0.5 sup 40 right ]
+.EN
+.CODE BR
+> pbinom(15, 40, 0.5)
+.BR
+[1] 0.07692997
+.CODE OFF
+
+
+.ITEM
+At least 20 survive
+.CODE BR
+> sum(dbinom(20:40, 40, 0.5))
+.BR
+[1] 0.5626853
+.CODE OFF
+.LIST OFF
+.ITEM
+From a box containing five white and four red balls, two balls are selected at random without
+replacement. Find the probabilities of the following events, using a named distribution.
+.LIST alpha ) (
+.ITEM
+Exactly one white ball is selected.
+.EQ
+X sim roman HGeom (5, 9, 2)
+.EN CONT
+.EQ
+P(X = 1) mark = {
+    left ( ~ pile { 5 above 1 } ~ right ) times left ( ~ pile { 4 above 1 } ~ right )
+} over {
+    left ( ~ pile { 9 above 2 } ~ right )
+}
+.EN CONT
+.EQ
+lineup approx 0.555
+.EN
+.ITEM
+At least one white ball is selected.
+.EQ
+P (X >= 1) mark = {
+    left ( ~ pile { 5 above 1 } ~ right ) times left ( ~ pile { 4 above 1 } ~ right )
+} over {
+    left ( ~ pile { 9 above 2 } ~ right )
+}
++ {
+    left ( ~ pile { 5 above 2 } ~ right ) times left ( ~ pile { 4 above 0 } ~ right )
+} over {
+    left ( ~ pile { 9 above 2 } ~ right )
+}
+.EN CONT
+.EQ
+lineup approx 0.833
+.EN
+.LIST OFF
+.ITEM
+Among 12 applicants for an open position, 7 are women and 5 are men. Suppose that three applicants
+are randomly selected from the applicant pool for final interviews. Let X be the number of female
+applicants among the final three.
+.LIST alpha ) (
+.ITEM
+Find and graph the probability mass function for X .
+.EQ
+X sim HGeom( K = 7, roman N = 12, n = 3)
+.EN
+.EQ
+P(X = x) mark = {
+    left ( ~ pile { 7 above x } ~ right ) times left ( ~ pile { 5 above 3 - x } ~ right )
+} over {
+    left ( ~ pile { 12 above 3 } ~ right )
+}
+.EN CONT
+.PS 1.5i
+copy thru % circle filled 1 rad 1/100 at ($1, $2) sprintf("%g", $2) ""  "" % until "END"
+1/4 0.04545455
+2/4 0.31818182
+3/4 0.47727273
+4/4 0.15909091
+END
+arrow from (1/4, 0) to (1.2, 0);
+arrow from (1/4, 0) to (1/4, 1/2);
+line from (1/4, 0) to 1st circle;
+line from (2/4, 0) to 2st circle;
+line from (3/4, 0) to 3st circle;
+line from (4/4, 0) to 4st circle;
+.PE
+.ITEM
+Find and graph the cumulative distribution function of X .
+.EQ
+P(X <= x) mark = size +18 sum from {i ~=~ 0} to x {
+    left ( ~ pile { 7 above i } ~ right ) times left ( ~ pile { 5 above 3 - i } ~ right )
+} over {
+    left ( ~ pile { 12 above 3 } ~ right )
+}
+.EN
+.PS 1.2959i
+copy thru % circle filled 1 rad 1/100 at ($1, $2) sprintf("%g", $2) ""  "" % until "END"
+1/4 0.04545455
+2/4 0.3636364
+3/4 0.8409091
+4/4 1
+END
+arrow from (1/4, 0) to (1.1, 0);
+arrow from (1/4, 0) to (1/4, 1);
+line from 1st circle to (2/4, 1nd circle.y);
+line from 2st circle to (3/4, 2rd circle.y);
+line from 3st circle to (1, 3rd circle.y);
+line from 4st circle to (1, 1);
+copy thru % circle rad 1/100 at `$1'th line.end % until "END"
+1
+2
+3
+4
+END
+.PE
+.LIST OFF
+.ITEM
+Observers have noticed that the cumulative distribution function of X, which is the number of
+commercial vehicles that cross a certain toll bridge during a minute, is as follows:
+.EQ
+F ( x ) ~=~ left {
+matrix {
+     lcol {
+          {0,}     above
+          {0.2,}     above
+          {0.5,}     above
+          {0.85,}     above
+          {1,}
+     }
+     lcol {
+          {roman if, ~x<0}       above
+          {roman if, ~0<=x<1}    above
+          {roman if, ~1<=x<2}    above
+          {roman if, ~2<=x<3}    above
+          {roman if, ~x >= 4}
+     }
+}
+.EN
+.PP
+Find the probability mass function of X .
+.EQ
+p ( x ) ~=~ left {
+matrix {
+     lcol {
+          {0,}     above
+          {0.2,}     above
+          {0.3,}     above
+          {0.35,}     above
+          {0.15,}
+     }
+     lcol {
+          {roman if, ~x<0}       above
+          {roman if, ~0<=x<1}    above
+          {roman if, ~1<=x<2}    above
+          {roman if, ~2<=x<3}    above
+          {roman if, ~x >= 4}
+     }
+}
+.EN
+.ITEM
+The pool of qualified jurors called for a high-profile case has 12 whites, 9 blacks, 4 Hispanics, and
+2 Asians. From these, 12 will be selected to serve on the jury. Assume that all qualified jurors meet
+the criteria for serving. Find the probabilities of the following events.
+.EQ
+X sim roman HGeom
+.EN
+.LIST alpha ) (
+.ITEM
+No white is on the jury.
+.EQ
+X sim roman HGeom (12, 27, 12)
+.EN
+.EQ
+P(X = 0) mark = {
+    left ( ~ pile { 12 above 0 } ~ right ) times left ( ~ pile { 15 above 12 } ~ right )
+} over {
+    left ( ~ pile { 27 above 12 } ~ right )
+}
+.EN CONT
+.EQ
+lineup approx 2.61 times 10 sup -5
+.EN
+.ITEM
+All nine blacks serve on the jury.
+.EQ
+X sim roman HGeom (9, 27, 12)
+.EN CONT
+.EQ
+P(X = 9) mark = {
+    left ( ~ pile { 9 above 9 } ~ right ) times left ( ~ pile { 18 above 3 } ~ right )
+} over {
+    left ( ~ pile { 27 above 12 } ~ right )
+}
+.EN CONT
+.EQ
+lineup approx 4.96 times 10 sup -5
+.EN
+.ITEM
+No Hispanics or Asians serve on the jury.
+.EQ
+X sim roman HGeom (6, 27, 12)
+.EN
+.EQ
+P(X = 0) mark = {
+    left ( ~ pile { 6 above 0 } ~ right ) times left ( ~ pile { 21 above 12 } ~ right )
+} over {
+    left ( ~ pile { 27 above 12 } ~ right )
+}
+.EN CONT
+.EQ
+lineup approx 1.69 times 10 sup -2
+.EN
+.LIST OFF
+.ITEM
+A foreman has 10 employees, and the company has just told him that he must terminate 4 of them.
+Of the 10 employees, 3 belong to a minority ethnic group. The foreman selected all three minority
+employees (plus one other) to terminate. The minority employees then protested to the union steward
+that they were discriminated against by the foreman. The foreman claimed that the selection had been
+completely random. What do you think? Justify your answer.
+.EQ
+X sim roman HGeom (3,10,4)
+.EN
+.EQ
+P(X = 3) mark = {
+    left ( ~ pile { 3 above 3 } ~ right ) times left ( ~ pile { 7 above 1 } ~ right )
+} over {
+    left ( ~ pile { 10 above 4 } ~ right )
+}
+.EN CONT
+.EQ
+lineup approx 3.33 times 10 sup -2
+.EN
+.PP
+There is about a 3% chance for the 3 minorities to be chosen. Although it is a slim chance, I don't believe that it is not plausable. Had it been a fraction of a percentage, then perhaps it might be suspicious.
+.LIST OFF
+.HEADING 9 "\s-2Blitzstein and Hwang (BH)\s0"
+.LIST DIGIT .
+.PAD_LIST_DIGITS LEFT
+.ITEM
+People are arriving at a party one at a time. While waiting for more people to arrive
+they entertain themselves by comparing their birthdays. Let X be the number of people
+needed to obtain a birthday match, i.e., before person X arrives there are no two people
+with the same birthday, but when person X arrives there is a match. Find the PMF of X
+.EQ
+P(X = x) = 1 - { \& sub 365 P sub x } over { 365 sup x }
+.EN
+.ITEM
+.LIST alpha ) (
+.ITEM
+Independent Bernoulli trials are performed, with probability 1/2 of success, until
+there has been at least one success. Find the PMF of the number of trials performed.
+.EQ
+X sim roman Bin (n, 1 smallover 2 )
+.EN CONT
+.EQ
+P(X = 1) mark = left ( ~ pile { n above 1 } ~ right ) times 0.5 sup n
+.EN
+.LIST OFF
+.RESET_LIST 5
+.ITEM
+.LIST alpha ) (
+.ITEM
+Show that $p(n) = ( 1 smallover 2 ) sup {n+1}$ for $n = 0,1,2,...$ is a valid PMF for a discrete r.v.
+.LIST roman2 .
+.ITEM
+All probablilities are $>= 0$.
+.BR
+.PP
+This is true because the product of two positive numbers is always positive.
+.ITEM
+Sum of all probabilities is 1
+.EQ
+size +4 sum from {n~=~0} to inf p(n) mark = size +4 sum from {n~=~0} to inf left ( 1 over 2 right ) sup {n + 1}
+.EN CONT
+.EQ
+lineup = 1 over 2 times size +4 sum from {n~=~0} to inf left ( 1 over 2 sup n right )
+.EN CONT
+.EQ
+lineup = 1 over 2 times 1 over {1 - 1 smallover 2}
+.EN CONT
+.EQ
+lineup = 1
+.EN CONT
+.PP
+Since all of the probabilities are positive and the sum of all of them is 1, we can say that $p(n)$ is a valid PMF.
+.LIST OFF
+.ITEM
+Find the CDF of a random variable with the PMF from (a).
+.PP That would just be:
+.EQ
+size +4 sum from {n~=~0} to x left ( 1 over 2 right ) sup {n + 1}
+.EN
+.LIST OFF
+.RESET_LIST 21
+.ITEM
+Let $X sim roman Bin (n, p)$ and $Y sim roman Bin (m, p)$, independent of $X$. Show that $X - Y$ is \*[IT]not\fP binomial.
+.EQ
+P(X = i) - P(Y = j) mark = left ( ~ pile { n above i } ~ right ) times p sup i times (1 - p) sup {n - i}
+    - left ( ~ pile { m above j } ~ right ) times p sup j times (1 - p) sup {m - j}
+.EN
+.RESET_LIST 28
+.ITEM
+There are n eggs, each of which hatches a chick with probability p (independently).
+Each of these chicks survives with probability r, independently. What is the distribution
+of the number of chicks that hatch? What is the distribution of the number of chicks that
+survive? (Give the PMFs; also give the names of the distributions and their parameters,
+if applicable.)
+.PP
+Let $X$ be the r.v. of chicks that hatch and $Y$ be the r.v. of chicks that survive.
+.EQ
+X sim roman Bin (n,p)
+.EN CONT
+.EQ
+Y sim roman Bin (x,r)
+.EN CONT
+.EQ
+P(X = x) = left ( ~ pile {n above x} ~ right ) times p sup x times (1 - p) sup {n - x}
+.EN CONT
+.EQ
+P(Y = y) = left ( ~ pile {x above y} ~ right ) times r sup y times (1 - r) sup {x - y}
+.EN
+.RESET_LIST 33
+.ITEM
+A book has $n$ typos. Two proofreaders, Prue and Frida, independently read the book.
+Prue catches each typo with probability $p sub 1$ and misses it with probability $q sub 1 = 1 − p sub 1$,
+independently, and likewise for Frida, who has probabilities $p sub 2$ of catching and $q sub 2 = 1−p sub 2$
+of missing each typo. Let $X sub 1$ be the number of typos caught by Prue, $X sub 2$ be the number
+caught by Frida, and $X$ be the number caught by at least one of the two proofreaders.
+.LIST alpha ) (
+.ITEM
+Find the distribution of $X$.
+.EQ
+X sim roman Bin (n, p sub 1 + p sub 2 - (p sub 1 times p sub 2 ))
+.EN CONT
+.PP
+Let $p sub 1 + p sub 2 - (p sub 1 times p sub 2 ) = p$:
+.EQ
+P(X = x) = left ( ~ pile { n above x } ~ right ) times p sup x times q sup {n - x }
+.EN CONT
+.LIST OFF
+.RESET_LIST 35
+.ITEM
+Players $A$ and $B$ take turns in answering trivia questions, starting with player $A$
+answering the first question. Each time $A$ answers a question, she has probability $p sub 1$ of
+getting it right. Each time $B$ plays, he has probability $p sub 2$ of getting it right.
+.LIST alpha ) (
+.ITEM
+If $A$ answers $m$ questions, what is the PMF of the number of questions she gets right?
+.EQ
+X sim Bin (m, p sub 1 )
+.EN CONT
+.EQ
+P(X = x) = left ( ~ pile { m above x } ~ right ) times p sub 1 sup x (1 - p sub 1 ) sup {m - x}
+.EN
+.ITEM
+If A answers m times and B answers n times, what is the PMF of the total number
+of questions they get right (you can leave your answer as a sum)? Describe exactly
+when/whether this is a Binomial distribution.
+.PP
+?
+.ITEM
+Suppose that the first player to answer correctly wins the game (with no predeter-
+mined maximum number of questions that can be asked). Find the probability that A
+wins the game.
+.PP
+Let the event that $A$ wins the game be $W$.
+.EQ
+P(W) mark = P(A) times P(W | A)
+.EN CONT
+.EQ
+lineup ~~+ P(B) times P(W | B)
+.EN CONT
+.EQ
+lineup ~~+ P(A sup c ) times P(B sup c ) times P(W)
+.EN CONT
+.EQ
+P(W) lineup = p sub 1 + p sub 2 times 0 + (1 - p sub 1 ) times (1 - p sub 2 ) times P(W)
+.EN CONT
+.EQ
+P(W) lineup = p sub 1 + (1 - p sub 1 ) times (1 - p sub 2 ) times P(W)
+.EN CONT
+.EQ
+P(W) - (1 - p sub 1 ) times (1 - p sub 2 ) times P(W) lineup = p sub 1
+.EN CONT
+.EQ
+P(W) times (1 - (1 - p sub 1 ) times (1 - p sub 2 )) lineup = p sub 1
+.EN CONT
+.EQ
+P(W) lineup = {p sub 1} over {1 - (1 - p sub 1 ) times (1 - p sub 2 ) }
+.EN CONT
+.EQ
+P(W) lineup = { p sub 1 } over {p sub 1 + p sub 2 - p sub 1 times p sub 2}
+.EN
+.LIST OFF
+.RESET_LIST 37
+.ITEM
+A message is sent over a noisy channel. The message is a sequence $x sub 1, x sub 2, . . . , x sub n$ of
+$n$ bits $(x sub i elof left { 0, 1 right } )$. Since the channel is noisy, there is a chance that any bit might be
+corrupted, resulting in an error (a $0$ becomes a $1$ or vice versa). Assume that the error
+events are independent. Let $p$ be the probability that an individual bit has an error
+$(0 < p < 1 smallover 2 )$. Let $y sub 1, y sub 2, . . . , y sub n$ be the received message (so $y sub i = x sub i$ if there is no error
+in that bit, but $y sub i = 1 − x sub i$ if there is an error there).
+To help detect errors, the $nth$ bit is reserved for a parity check: $x sub n$ is defined to be $0$ if
+$x sub 1 + x sub 2 + · · · + x sub {n−1}$ is even, and 1 if $x sub 1 + x sub 2 + · · · + x sub {n−1}$ is odd. When the message is
+received, the recipient checks whether yn has the same parity as $y sub 1 + y sub 2 + · · · + y sub {n−1}$. If
+the parity is wrong, the recipient knows that at least one error occurred; otherwise, the
+recipient assumes that there were no errors.
+.LIST alpha ) (
+.ITEM
+For $n = 5$, $p = 0.1$, what is the probability that the received message has errors
+which go undetected?
+.EQ
+left ( ~ pile { 5 above 2 } ~ right ) times 0.1 sup 2 times 0.9 sup 3 +
+left ( ~ pile { 5 above 4 } ~ right ) times 0.1 sup 4 times 0.9 sup 1 approx 0.073
+.EN
+.ITEM
+For general $n$ and $p$, write down an expression (as a sum) for the probability that
+the received message has errors which go undetected.
+.EQ
+size +8 sum from {k~ roman even, ~k>=0} left ( ~ pile { n above k } ~ right ) ~ times  p sup k times (1 - p) sup {n-k}
+.EN
+.LIST OFF
+.LIST OFF
