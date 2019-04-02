@@ -162,105 +162,105 @@ delim on
 .lf 9
 .nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
 .lf 9
-.nr 3w1 \n[3w1]>?\w\[tbl]32\[tbl]
+.nr 3w1 \n[3w1]>?\w\[tbl]8\[tbl]
 .lf 9
-.nr 3w2 \n[3w2]>?\w\[tbl]48.86\[tbl]
+.nr 3w2 \n[3w2]>?\w\[tbl]49.71\[tbl]
 .lf 10
-.nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
-.lf 10
-.nr 3w1 \n[3w1]>?\w\[tbl]2\[tbl]
-.lf 10
-.nr 3w2 \n[3w2]>?\w\[tbl]48.94\[tbl]
-.lf 11
 .nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
+.lf 10
+.nr 3w1 \n[3w1]>?\w\[tbl]8\[tbl]
+.lf 10
+.nr 3w2 \n[3w2]>?\w\[tbl]50.03\[tbl]
+.lf 11
+.nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
 .lf 11
 .nr 3w1 \n[3w1]>?\w\[tbl]default\[tbl]
 .lf 11
-.nr 3w2 \n[3w2]>?\w\[tbl]49.05\[tbl]
+.nr 3w2 \n[3w2]>?\w\[tbl]50.04\[tbl]
 .lf 12
-.nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
-.lf 12
-.nr 3w1 \n[3w1]>?\w\[tbl]2\[tbl]
-.lf 12
-.nr 3w2 \n[3w2]>?\w\[tbl]49.20\[tbl]
-.lf 13
-.nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
-.lf 13
-.nr 3w1 \n[3w1]>?\w\[tbl]8\[tbl]
-.lf 13
-.nr 3w2 \n[3w2]>?\w\[tbl]49.21\[tbl]
-.lf 14
-.nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
-.lf 14
-.nr 3w1 \n[3w1]>?\w\[tbl]4\[tbl]
-.lf 14
-.nr 3w2 \n[3w2]>?\w\[tbl]49.25\[tbl]
-.lf 15
-.nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
-.lf 15
-.nr 3w1 \n[3w1]>?\w\[tbl]4\[tbl]
-.lf 15
-.nr 3w2 \n[3w2]>?\w\[tbl]49.37\[tbl]
-.lf 16
-.nr 3w0 \n[3w0]>?\w\[tbl]static\[tbl]
-.lf 16
-.nr 3w1 \n[3w1]>?\w\[tbl]2\[tbl]
-.lf 16
-.nr 3w2 \n[3w2]>?\w\[tbl]49.74\[tbl]
-.lf 17
-.nr 3w0 \n[3w0]>?\w\[tbl]static\[tbl]
-.lf 17
-.nr 3w1 \n[3w1]>?\w\[tbl]8\[tbl]
-.lf 17
-.nr 3w2 \n[3w2]>?\w\[tbl]49.99\[tbl]
-.lf 18
-.nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
-.lf 18
-.nr 3w1 \n[3w1]>?\w\[tbl]default\[tbl]
-.lf 18
-.nr 3w2 \n[3w2]>?\w\[tbl]50.22\[tbl]
-.lf 19
-.nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
-.lf 19
-.nr 3w1 \n[3w1]>?\w\[tbl]8\[tbl]
-.lf 19
-.nr 3w2 \n[3w2]>?\w\[tbl]50.27\[tbl]
-.lf 20
 .nr 3w0 \n[3w0]>?\w\[tbl]auto\[tbl]
+.lf 12
+.nr 3w1 \n[3w1]>?\w\[tbl]default\[tbl]
+.lf 12
+.nr 3w2 \n[3w2]>?\w\[tbl]50.07\[tbl]
+.lf 13
+.nr 3w0 \n[3w0]>?\w\[tbl]static\[tbl]
+.lf 13
+.nr 3w1 \n[3w1]>?\w\[tbl]default\[tbl]
+.lf 13
+.nr 3w2 \n[3w2]>?\w\[tbl]50.21\[tbl]
+.lf 14
+.nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
+.lf 14
+.nr 3w1 \n[3w1]>?\w\[tbl]2\[tbl]
+.lf 14
+.nr 3w2 \n[3w2]>?\w\[tbl]50.23\[tbl]
+.lf 15
+.nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
+.lf 15
+.nr 3w1 \n[3w1]>?\w\[tbl]2\[tbl]
+.lf 15
+.nr 3w2 \n[3w2]>?\w\[tbl]50.31\[tbl]
+.lf 16
+.nr 3w0 \n[3w0]>?\w\[tbl]static\[tbl]
+.lf 16
+.nr 3w1 \n[3w1]>?\w\[tbl]1\[tbl]
+.lf 16
+.nr 3w2 \n[3w2]>?\w\[tbl]50.36\[tbl]
+.lf 17
+.nr 3w0 \n[3w0]>?\w\[tbl]static\[tbl]
+.lf 17
+.nr 3w1 \n[3w1]>?\w\[tbl]8\[tbl]
+.lf 17
+.nr 3w2 \n[3w2]>?\w\[tbl]50.39\[tbl]
+.lf 18
+.nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
+.lf 18
+.nr 3w1 \n[3w1]>?\w\[tbl]32\[tbl]
+.lf 18
+.nr 3w2 \n[3w2]>?\w\[tbl]50.45\[tbl]
+.lf 19
+.nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
+.lf 19
+.nr 3w1 \n[3w1]>?\w\[tbl]32\[tbl]
+.lf 19
+.nr 3w2 \n[3w2]>?\w\[tbl]50.59\[tbl]
+.lf 20
+.nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
 .lf 20
 .nr 3w1 \n[3w1]>?\w\[tbl]default\[tbl]
 .lf 20
-.nr 3w2 \n[3w2]>?\w\[tbl]50.48\[tbl]
+.nr 3w2 \n[3w2]>?\w\[tbl]50.61\[tbl]
 .lf 21
-.nr 3w0 \n[3w0]>?\w\[tbl]static\[tbl]
+.nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
 .lf 21
 .nr 3w1 \n[3w1]>?\w\[tbl]4\[tbl]
 .lf 21
-.nr 3w2 \n[3w2]>?\w\[tbl]50.72\[tbl]
+.nr 3w2 \n[3w2]>?\w\[tbl]50.67\[tbl]
 .lf 22
-.nr 3w0 \n[3w0]>?\w\[tbl]guided\[tbl]
-.lf 22
-.nr 3w1 \n[3w1]>?\w\[tbl]32\[tbl]
-.lf 22
-.nr 3w2 \n[3w2]>?\w\[tbl]50.84\[tbl]
-.lf 23
 .nr 3w0 \n[3w0]>?\w\[tbl]static\[tbl]
+.lf 22
+.nr 3w1 \n[3w1]>?\w\[tbl]4\[tbl]
+.lf 22
+.nr 3w2 \n[3w2]>?\w\[tbl]50.87\[tbl]
 .lf 23
-.nr 3w1 \n[3w1]>?\w\[tbl]default\[tbl]
+.nr 3w0 \n[3w0]>?\w\[tbl]dynamic\[tbl]
 .lf 23
-.nr 3w2 \n[3w2]>?\w\[tbl]50.85\[tbl]
+.nr 3w1 \n[3w1]>?\w\[tbl]4\[tbl]
+.lf 23
+.nr 3w2 \n[3w2]>?\w\[tbl]50.97\[tbl]
 .lf 24
 .nr 3w0 \n[3w0]>?\w\[tbl]static\[tbl]
 .lf 24
-.nr 3w1 \n[3w1]>?\w\[tbl]1\[tbl]
+.nr 3w1 \n[3w1]>?\w\[tbl]2\[tbl]
 .lf 24
-.nr 3w2 \n[3w2]>?\w\[tbl]51.15\[tbl]
+.nr 3w2 \n[3w2]>?\w\[tbl]51.02\[tbl]
 .lf 25
 .nr 3w0 \n[3w0]>?\w\[tbl]serial\[tbl]
 .lf 25
 .nr 3w1 \n[3w1]>?\w\[tbl]default\[tbl]
 .lf 25
-.nr 3w2 \n[3w2]>?\w\[tbl]137.46\[tbl]
+.nr 3w2 \n[3w2]>?\w\[tbl]166.17\[tbl]
 .nr 3w0 \n[3w0]>?(\n[3lnw0]+\n[3rnw0])
 .if \n[3aw0] .nr 3w0 \n[3w0]>?(\n[3aw0]+2n)
 .nr 3w1 \n[3w1]>?(\n[3lnw1]+\n[3rnw1])
@@ -442,7 +442,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 9 -
-\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'32\h'|\n[3cl2]u'48.86
+\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'8\h'|\n[3cl2]u'49.71
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs2]u
 .3rlns m
@@ -470,7 +470,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 10
-\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'2\h'|\n[3cl2]u'48.94
+\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'8\h'|\n[3cl2]u'50.03
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs3]u
 .3rlns m
@@ -498,7 +498,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 11
-\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'default\h'|\n[3cl2]u'49.05
+\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'default\h'|\n[3cl2]u'50.04
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs4]u
 .3rlns m
@@ -526,7 +526,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 12
-\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'2\h'|\n[3cl2]u'49.20
+\&\h'|\n[3cl0]u'auto\h'|\n[3cl1]u'default\h'|\n[3cl2]u'50.07
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs5]u
 .3rlns m
@@ -554,7 +554,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 13
-\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'8\h'|\n[3cl2]u'49.21
+\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'default\h'|\n[3cl2]u'50.21
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs6]u
 .3rlns m
@@ -582,7 +582,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 14
-\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'4\h'|\n[3cl2]u'49.25
+\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'2\h'|\n[3cl2]u'50.23
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs7]u
 .3rlns m
@@ -610,7 +610,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 15
-\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'4\h'|\n[3cl2]u'49.37
+\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'2\h'|\n[3cl2]u'50.31
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs8]u
 .3rlns m
@@ -638,7 +638,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 16
-\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'2\h'|\n[3cl2]u'49.74
+\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'1\h'|\n[3cl2]u'50.36
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs9]u
 .3rlns m
@@ -666,7 +666,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 17
-\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'8\h'|\n[3cl2]u'49.99
+\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'8\h'|\n[3cl2]u'50.39
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs10]u
 .3rlns m
@@ -694,7 +694,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 18
-\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'default\h'|\n[3cl2]u'50.22
+\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'32\h'|\n[3cl2]u'50.45
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs11]u
 .3rlns m
@@ -722,7 +722,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 19
-\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'8\h'|\n[3cl2]u'50.27
+\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'32\h'|\n[3cl2]u'50.59
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs12]u
 .3rlns m
@@ -750,7 +750,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 20
-\&\h'|\n[3cl0]u'auto\h'|\n[3cl1]u'default\h'|\n[3cl2]u'50.48
+\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'default\h'|\n[3cl2]u'50.61
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs13]u
 .3rlns m
@@ -778,7 +778,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 21
-\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'4\h'|\n[3cl2]u'50.72
+\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'4\h'|\n[3cl2]u'50.67
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs14]u
 .3rlns m
@@ -806,7 +806,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 22
-\&\h'|\n[3cl0]u'guided\h'|\n[3cl1]u'32\h'|\n[3cl2]u'50.84
+\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'4\h'|\n[3cl2]u'50.87
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs15]u
 .3rlns m
@@ -834,7 +834,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 23
-\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'default\h'|\n[3cl2]u'50.85
+\&\h'|\n[3cl0]u'dynamic\h'|\n[3cl1]u'4\h'|\n[3cl2]u'50.97
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs16]u
 .3rlns m
@@ -862,7 +862,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 24
-\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'1\h'|\n[3cl2]u'51.15
+\&\h'|\n[3cl0]u'static\h'|\n[3cl1]u'2\h'|\n[3cl2]u'51.02
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs17]u
 .3rlns m
@@ -890,7 +890,7 @@ delim on
 .3rvpt 0
 .ta \n[3ce0]u \n[3ce1]u \n[3ce2]u
 .lf 25
-\&\h'|\n[3cl0]u'serial\h'|\n[3cl1]u'default\h'|\n[3cl2]u'137.46
+\&\h'|\n[3cl0]u'serial\h'|\n[3cl1]u'default\h'|\n[3cl2]u'166.17
 .nr 3bot \n[3bot]>?\n[.d]
 .sp |\n[3rs18]u
 .3rlns m
@@ -918,4 +918,4 @@ delim on
 .fc
 .cp \n(3c
 .lf 26
-.TE SOURCE "\s-44 threads\s0"
+.TE SOURCE "\s-4 AMD FX(tm)-6300 Six-Core Processor \s0"
