@@ -35,7 +35,6 @@
 .HEADING_STYLE 1 FAMILY LM FONT SC SIZE +2 BASELINE_ADJUST 6p
 .HEADING_STYLE 2 FAMILY LM FONT SC SIZE +0 BASELINE_ADJUST 6p \
     UNDERSCORE 0.5 0.2
-.FOOTNOTE_MARKER_STYLE NUMBER
 .de H1
 .HEADING 1 "\\$1\h'.2i'\*[ST1]"
 .RLD 1.8P
@@ -45,20 +44,23 @@
 .TQ
 ..
 \" --------------------------------------------------
-.BIBLIOGRAPHY_STRING "\f(SCReading List\fP"
-.BIBLIOGRAPHY_SPACING 1P
-.BIBLIOGRAPHY_ALLOWS_HEADERS X
-.BIBLIOGRAPHY_STRING_UNDERSCORE X
-.BIBLIOGRAPHY_STRING_CAPS X
+.ENDNOTE_STRING "\f(SCReading List\fP"
+.ENDNOTE_SPACING 1P
+.ENDNOTE_PARA_INDENT 0P
+.ENDNOTE_PT_SIZE 10
+.ENDNOTE_MARKER_STYLE NUMBER
+.ENDNOTE_QUAD L
+.ENDNOTE_ALLOWS_HEADERS X
+.ENDNOTE_STRING_UNDERSCORE X
+.ENDNOTE_STRING_CAPS X
+.ENDNOTE_TITLE ""
+.INDENT_REFS ENDNOTE 0p
 .ENDNOTE_REFS
 .R1
 no-label-in-text
 no-label-in-reference
+join-authors " and " ", " ", and "
 .R2
-.de BIB
-.BIBLIOGRAPHY
-.BIBLIOGRAPHY OFF
-..
 \" --------------------------------------------------
 .PARA_INDENT 0i
 .PARA_SPACE
@@ -73,7 +75,13 @@ or instantiate their own instance of a variable. Sharing memory access can be pr
 may operate out of order. I will discuss my technique for using OpenMP and Java 8 streams to parallelize
 Gaussian elimination and bilinear interpolation and how I avoid collisions between threads.
 .H1 "Bilinear Interpolation"
-Bilinear interpolation is an extension of linear interpolation, which is used to approximate
+Bilinear interpolation\c
+.REF
+.[
+wikipedia bilinear interpolation
+.]
+.REF
+\& is an extension of linear interpolation, which is used to approximate
 intermediate values of linear functions. Bilinear interpolation is used to interpolate values
 between two axes.
 .EQ
@@ -139,7 +147,13 @@ the concurrent loop and the OpenMP loop.
 .FLOAT OFF
 .ALD 1P
 .PP
-It is worth considering using different scheduling to further increase performance.
+It is worth considering using different scheduling\c
+.REF
+.[
+intel loop scheduling
+.]
+.REF
+\& to further increase performance.
 The \FCschedule\F(LM argument is used to specify the technique OpenMP will use to partition
 and assign chunks to threads. \FCschedule\F(LM takes two parameters. The first is the scheduling type,
 they are: \FCruntime\F(LM, \FCauto\F(LM, \FCstatic\F(LM, \FCdynamic\F(LM, and \FCguided\F(LM.
@@ -177,10 +191,9 @@ By abusing the capability for Java 8 streams to run in parallel, we can easily o
 this algorithm in Java. Data sharing is done using lambda variable captures\c
 .REF
 .[
-peter
+lambda capture
 .]
 .REF
-\" http://www.java2s.com/Tutorials/Java/Java_Lambda/0180__Java_Lambda_Variable_Capture.htm
 \&.
 .FLOAT FORCE
 \FC
@@ -214,4 +227,4 @@ peter
 \fR Parallelized using Java 8 Streams
 .PP
 .FLOAT OFF
-.BIB
+.ENDNOTES

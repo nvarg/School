@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+export REFER=./doc/reference
 font_dir=./doc/site-font
 input=./doc/document.mom
 output=./output.pdf
@@ -14,7 +15,7 @@ do
 done
 
 printf -- "Converting $input to $output\n"
-pdfmom -U -F "$font_dir" -f LM -tep 2>/dev/null > "$output" < "$input"
+pdfmom -U -F "$font_dir" -f LM -Rtep 2>/dev/null > "$output" < "$input"
 printf -- "DONE\n"
 exit 0
 
