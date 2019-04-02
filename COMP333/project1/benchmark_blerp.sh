@@ -57,6 +57,11 @@ for schedule in "${!tests[@]}"; do
 done | sort -n -k3 | sed '/^$/d')"
 printf -- "\nresults:\nschedule chunk\truntime (seconds)\n$results"
 
+cpu_name=""
+if command -v lscpu &>/dev/null; then
+    cpu_name="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g')"
+fi
+
 results=$(sed -e 's/\t/:/g' <<< "$results") # -e 'a_' <<< "$results")
 doc=".TS H CENTER BOXED
 tab(:) center allbox;
@@ -67,7 +72,7 @@ schedule:chunk-size:runtime (seconds)
 _
 .TH
 $results
-.TE SOURCE \"\\s-4$(nproc) threads\\s0\""
+.TE SOURCE \"\\s-4 $cpu_name \\s0\""
 
 tbl <<< "$doc" > doc/BLERP_C_BENCHMARK.mom
 printf -- "DONE"
