@@ -1,10 +1,5 @@
 # Parallel Tasks
 
-## What's this?
-
-This is an analysis of OpenMP and Java 8 methods of executing loops in parallel. The included scripts will compile and execute benchmarks for the Groff document
-to read.
-
 ## benchmark_blerp.sh
 
 It compiles the Bilinear Interpolation algorithm and benchmarks it using different OpenMP scheduling. It scales an image by 10000% for each test. It outputs Groff code to doc/BLERP_C_BENCHMARK.mom.
